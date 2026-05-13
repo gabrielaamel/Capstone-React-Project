@@ -1,38 +1,103 @@
-.App {
-  text-align: center;
+/* Your new Little Lemon Layout */
+body{
+  margin:0;
+  padding:0;
+
+}
+.container {
+  display: grid;
+  /* Create the 12-column responsive grid */
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+  gap: 20px;
+  padding: 10px;
+  max-width: 1200px;
+  margin: 0 auto; /* Centers the app on the screen */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Make sure your components span the right number of columns */
+header, nav, footer {
+  grid-column: span 12;
+  /* This part centers the content inside the header/nav/footer */
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+
+  /* Optional: adds a little space so they aren't touching each other */
+  padding: 10px 0;
+}
+nav ul {
+  display: flex;
+  gap: 15px;
+  padding: 0;
+  margin: 0;
+  /* This prevents the text from being cut off by allowing it to move to a new line if needed */
+  flex-wrap: wrap;
 }
 
-.App-link {
-  color: #61dafb;
+main {
+  /* This centers the main content with a small margin on each side */
+  grid-column:  span 12;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Example for mobile responsiveness */
+@media (max-width: 768px) {
+  main {
+    grid-column: span 12; /* On small screens, main takes full width */
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+/* Select the logo image specifically */
+header img {
+    /* Set a fixed width that feels right for a header (e.g., 200px or 20% of the header) */
+    width: 180px;
+    height: auto; /* This keeps the proportions perfect so it doesn't look squished */
+
+    /* If you want it to sit in a specific part of your grid: */
+
+}
+/* Little Lemon Brand Colors */
+:root {
+  --primary-green: #495E57;
+  --primary-yellow: #F4CE14;
+  --secondary-orange: #EE9972;
+  --light-gray: #EDEFEE;
+}
+
+h1 {
+  font-family: 'Markazi Text', serif; /* Or your chosen Figma font */
+  font-size:64pt;
+  color: var(--primary-yellow);
+}
+
+h2 {
+  font-family: 'Markazi Text', serif;
+  font-size: 40pt;
+  color: var(--light-gray);
+}
+
+p {
+  font-family: 'Karla', sans-serif;
+  font-size: 18pt;
+  line-height: 1.5; /* Makes text easier to read */
+  color: var(--primary-green);
+}
+img{
+  border-radius: 16px;/*matching the figma rounded corner*/
+}
+nav ul {
+  list-style-type: none; /* Removes the bullet points */
+  display: flex;    /* Lays links out side-by-side */
+  gap: 20px;        /* Adds space between links */
+  padding: 0;
+}
+
+nav a {
+  text-decoration: none; /* Removes the underline */
+  color: var(--primary-green);
+  font-weight: bold;
+  font-family: 'Karla', sans-serif;
+}
+
+nav a:hover {
+  color: var(--secondary-orange); /* Adds a "feedback" color when hovering */
 }

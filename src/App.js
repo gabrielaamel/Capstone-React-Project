@@ -1,10 +1,19 @@
-
 import './App.css';
+import Header from './Header';
+import Nav from './Nav';
+import Main from './Main';
+import Footer from './footer';
 
 function App() {
   return (
-  <div classNAme="App">
-      <h1>Little Lemon Homepage</h1>
+  <div className='container'>
+
+
+
+      <Header/>
+      <Nav/>
+      <Main/>
+      <Footer/>
 
 
 
