@@ -1,8 +1,17 @@
+import{Routes,Route } from 'react-router-dom';
+import  HomePage  from './HomePage';
+import BookingPage from './BookingPage';
+
+
 export default function Main(){
     return (
         <main>
-        <h1>Welcome to Little Lemon </h1>
-        <p> We are a family owned Mediterranean Restaurant...</p>
+            <Routes>
+        {/* This handles the logic of which page to show */}
+            <Route path ="/" element={<HomePage />}/>
+            <Route path ="/Booking" element={<BookingPage/>}/>
+
+            </Routes>
         </main>
 
     );

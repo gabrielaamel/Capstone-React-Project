@@ -1,11 +1,14 @@
 import './App.css';
+import { BrowserRouter } from 'react-router-dom'; // 1. Import the router
+
 import Header from './Header';
 import Nav from './Nav';
 import Main from './Main';
-import Footer from './footer';
+import Footer from './Footer';
 
 function App() {
   return (
+    <BrowserRouter>
   <div className='container'>
 
 
@@ -18,6 +21,7 @@ function App() {
 
 
   </div>
+  </BrowserRouter>
   );
 }
 
