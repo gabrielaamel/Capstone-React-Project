@@ -1,18 +1,36 @@
-import{Routes,Route } from 'react-router-dom';
-import  HomePage  from './HomePage';
-import BookingPage from './BookingPage';
+// Main.js
+import React, { useReducer } from "react";
+import { Routes, Route } from "react-router-dom";
+import BookingForm from "./BookingForm";
+import { initializeTimes, updateTimes } from "./bookingReducer";
 
+function Main() {
+  // 🚀 El hook useReducer maneja los estados de los horarios de forma limpia
+const [availableTimes, dispatch] = useReducer(
+    updateTimes,
+    [],
+    initializeTimes,
+);
 
-export default function Main(){
-    return (
-        <main>
-            <Routes>
-        {/* This handles the logic of which page to show */}
-            <Route path ="/" element={<HomePage />}/>
-            <Route path ="/Booking" element={<BookingPage/>}/>
+return (
+    <main>
+    <Routes>
+        {/* Ruta para la página principal si está vacía */}
+        <Route
+        path="/"
+        element={<h1>Welcome to Little Lemon! Go to /booking to reserve.</h1>}
+        />
 
-            </Routes>
-        </main>
-
-    );
+        {/* Ruta oficial para el formulario de reservas */}
+        <Route
+        path="/booking"
+        element={
+            <BookingForm availableTimes={availableTimes} dispatch={dispatch} />
+        }
+        />
+    </Routes>
+    </main>
+);
 }
+
+export default Main;
